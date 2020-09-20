@@ -2,22 +2,22 @@
     <v-container class='borda main-container sm-pa-8 align-start' fill-height> 
         <v-row wrap class='elevation-16 flex-sm-row-reverse'> 
 
-            <v-col class='px-0 pt-0 pb-8 col-12 col-sm-3 blue accent-3' >
-                <v-container class='blue accent-4 pb-2'>
-                    <v-container color='' class='pa-4'>
+            <v-col class='profile-column px-0 pt-0 pb-3 col-12 col-sm-3' >
+                <v-container class='general-profile pb-2'>
+                    <v-container class='pa-4 mb-2'>
                         <v-img 
                         src='./../assets/mypic-avatar.jpg'
                         contain
                         class='avatar-img mx-auto'/>
                     </v-container>
 
-                    <p style='text-align:center' class='white--text mb-0 text-h5 font-weight-black'> {{infoPerfil.nome}}</p>
+                    <p style='text-align:center' class='white--text mb-0 text-h4 text-sm-h5 font-weight-black'> {{infoPerfil.nome}}</p>
                     <p style='text-align:center' class='grey--text text--lighten-2 text-subtitle-2'> {{infoPerfil.profissao}}</p>
                                         
                 </v-container>
 
-                <v-container id='ulcontainer'
-                    class='borda mt-4 pa-2'>
+                <v-container id='socialMedia'
+                    class='borda mt-1 pa-2'>
                     <ul class='borda'> 
                         <li v-for="(items, index) in socialMedia.descricao" 
                             :key='index'
@@ -30,16 +30,16 @@
                 </v-container>
 
                 <v-container id='educação'
-                    class='borda mt-4 pa-2'>
+                    class='borda mt-1 pa-2'>
 
-                    <p class='topico-profile white--text text-subtitle-1 font-weight-bold'>EDUCAÇÃO </p>
-                    <p class='grey--text text--lighten-2 topico-profile'>Universidade Federal Fluminense</p>
+                    <p class='topic-column white--text text-subtitle-1 mb-0 font-weight-bold'>EDUCAÇÃO </p>
+                    <p class='grey--text text--lighten-2 topic-column mb-1'>Universidade Federal Fluminense</p>
                 </v-container>
 
                 <v-container id='idiomas'
-                    class='borda mt-4 pa-2'>
+                    class='borda pa-2'>
 
-                    <p class='topico-profile text-h5 font-weight-bold text-subtitle-1 '> 
+                    <p class='topic-column text-h5 font-weight-bold mb-0 text-subtitle-1'> 
                         {{idiomas.titulo}} 
                     </p>
                     <ul class='borda'> 
@@ -52,9 +52,9 @@
                 </v-container>
 
                 <v-container id='interesses'
-                    class='borda mt-4 pa-2'>
+                    class='borda mt-1 pa-2'>
 
-                    <p class='topico-profile text-h5 text-subtitle-1 font-weight-bold'>{{interesses.titulo}}</p>
+                    <p class='topic-column text-h5 mb-0 text-subtitle-1 font-weight-bold'>{{interesses.titulo}}</p>
                     <ul class='borda'> 
                         <li v-for="(items, index) in interesses.descricao" 
                             :key='index'
@@ -65,7 +65,7 @@
                 </v-container>
             </v-col>
 
-            <v-col class='grey lighten-4 col-12 col-sm-9 sm-pa-12'>
+            <v-col class='grey lighten-4 col-12 col-sm-9 pa-0 sm-pa-12'>
 
                 <v-container class=''>
                     <v-container>
@@ -144,14 +144,14 @@ export default {
             {icone: 'mdi-account', titulo: 'Habilidades', descricao: ''}
         ],
         salgadinhoDeLinguagens: [
-            {linguagem:'JavaScript', icone:'js-icon.svg', cor:'yellow darken-3'},
+            {linguagem:'JavaScript', icone:'js-icon.svg', cor:'yellow darken-2'},
             {linguagem:'JQuery', icone:'jquery-icon.svg', cor:'blue accent-1'},
-            {linguagem:'NodeJs', icone:'node-icon.svg', cor:'green darken-2'},
+            {linguagem:'NodeJs', icone:'node-icon.svg', cor:'green darken-1'},
             {linguagem:'HTML5', icone:'icon-html.svg', cor:'deep-orange accent-2'},
             {linguagem:'CSS3', icone:'icon-css3.svg', cor:'blue accent-2'},
             {linguagem:'VueJs', icone:'vue-icon.svg', cor:'teal accent-3'},
             {linguagem:'C', icone:'c-icon.svg', cor:'light-blue darken-2'},
-            {linguagem:'Java', icone:'java-icon.svg', cor:'blue-grey lighten-3'},
+            {linguagem:'Java', icone:'java-icon.svg', cor:'blue-grey lighten-4'},
         
         ],
 
@@ -184,22 +184,21 @@ a{
     width:  100%;
     height: 100%;
 }
-
+.general-profile{
+    background-color: #4b7bec;
+}
 .avatar-img{
     border-radius:100%;
     margin: auto auto;
-    width:  50%;
-    height: 50%;
+    width:  60%;
+    height: 60%;
 }
 
-.information-column{
-    width:  80%;
-    height: 100%;
-}
 .profile-column{
-    padding-bottom:12px;
+    /* padding-bottom:12px; */
+    background-color: #4D7EF0;
 }
-.topico-profile{
+.topic-column{
     padding-left: 16px;
     text-align: left;
     color: white;
