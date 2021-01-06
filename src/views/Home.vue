@@ -1,6 +1,6 @@
 <template>
-    <v-container class='borda main-container sm-pa-8 align-start' fill-height> 
-        <v-row wrap class='elevation-16 flex-sm-row-reverse'> 
+    <v-container class='borda main-container sm-pa-8 pa-0 align-start' fill-height> 
+        <v-row wrap class='elevation-16 flex-sm-row-reverse mt-sm-4'> 
 
             <v-col class='profile-column px-0 pt-0 pb-3 col-12 col-sm-3' >
                 <v-container class='general-profile pb-2'>
@@ -16,16 +16,19 @@
                                         
                 </v-container>
 
-                <v-container id='socialMedia'
-                    class='borda mt-1 pa-2'>
-                    <ul class='borda'> 
-                        <li v-for="(items, index) in socialMedia.descricao" 
-                            :key='index'
-                            class='borda white--text'> 
-                            <v-icon small color='white'>{{socialMedia.icone[index]}} </v-icon>
-                            {{items}} 
-                            
-                        </li>
+                <v-container
+                    class='borda mt-1 pa-2 socialMedia'>
+                    <ul class='borda'>
+                        <template v-for="(items, index) in socialMedia.descricao">
+                            <li 
+                                :key='index'
+                                :contato='socialMedia.icone[index]'
+                                class='borda white--text'> 
+                                <v-icon small color='white'>{{socialMedia.icone[index]}} </v-icon>
+                                {{items}} 
+                                
+                            </li>
+                        </template>
                     </ul>
                 </v-container>
 
@@ -117,8 +120,9 @@ export default {
     data: () => ({
         socialMedia: {
             titulo: 'CONTATO',
-            descricao: ['igorbm@id.uff.br', '+55 021 97685-4058'],
-            icone: ['mdi-email', 'mdi-phone']
+            descricao: ['igorbm@id.uff.br', '+55 021 97685-4058','ibarretom'],
+            icone: ['mdi-email', 'mdi-phone','fab fa-github'],
+            links: ['','', 'https://github.com/ibarretom']
         },
         idiomas: {
             titulo: 'IDIOMAS',
@@ -155,12 +159,26 @@ export default {
         
         ],
 
-        infoPerfil: { nome: 'Igor Meirelles', profissao: 'Desenvolvedor Web'}
+        infoPerfil: { nome: 'Igor Meirelles', profissao: 'Desenvolvedor de Software'}
     }),
     methods: {
         proMental() {
-            //window.location.href = ""
+            window.open('https://pensu-promental.web.app/#/')
         }
+    },
+    mounted(){
+        document.querySelectorAll('li[contato]').forEach(li => {
+            const arrayDeIcones = this.socialMedia.icone
+            const links = this.socialMedia.links
+            li.onclick = e => {
+                e.preventDefault();
+                let atributo = li.getAttribute('contato')
+                let indiceDoIcone = arrayDeIcones.indexOf(atributo)
+                if(indiceDoIcone === 2){
+                    window.open(links[indiceDoIcone])
+                }
+            }
+        })
     }
 }
 </script>
@@ -173,6 +191,9 @@ ul{
 li{
     text-align: left;
     margin: 4px 0;
+}
+li.socialMedia{
+    cursor: pointer;
 }
 a{
     text-decoration: none;
@@ -193,7 +214,12 @@ a{
     width:  60%;
     height: 60%;
 }
-
+@media (min-width: 1024px){
+    .profile-column{
+    overflow: auto;
+    height: 96vh;
+}
+}
 .profile-column{
     /* padding-bottom:12px; */
     background-color: #4D7EF0;
