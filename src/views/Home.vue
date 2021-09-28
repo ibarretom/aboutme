@@ -30,16 +30,21 @@
 
         <v-container class="borda mt-1 pa-2 socialMedia">
           <ul class="borda">
-            <template v-for="(items, index) in socialMedia.descricao">
+            <template v-for="(items, index) in contatos.formas">
               <li
+                v-if="!items.links"
                 :key="index"
-                :contato="socialMedia.icone[index]"
+                :contato="items.icone"
                 class="borda white--text"
               >
-                <v-icon small color="white"
-                  >{{ socialMedia.icone[index] }}
-                </v-icon>
-                {{ items }}
+                <v-icon small color="white"> {{ items.icone }} </v-icon>
+                {{ items.descricao }}
+              </li>
+              <li v-else :key="index">
+                <a class="link_profile" :href="items.links" target="_blank">
+                  <v-icon small color="white"> {{ items.icone }} </v-icon>
+                  {{ items.descricao }}
+                </a>
               </li>
             </template>
           </ul>
@@ -73,9 +78,9 @@
               class="borda white--text"
             >
               {{ items.idioma }}
-              <span class="grey--text text--lighten-2 text-caption"
-                >({{ items.nivel }})</span
-              >
+              <span class="grey--text text--lighten-2 text-caption">
+                ({{ items.nivel }})
+              </span>
             </li>
           </ul>
         </v-container>
@@ -107,8 +112,15 @@
           <v-container>
             <p class="primary--text text-h5 mb-0">{{ carreira.exp.titulo }}</p>
             <template v-for="(exp, index) in carreira.exp.colaboracoes">
-              <p class="text-subtitle-2 mt-2 mb-0 font-weight-medium " :key="`${index}-1`">{{ exp.titulo }}</p>
-              <p class="text-body-2 mt-2" :key="`${index}-2`">{{ exp.descricao }}</p>
+              <p
+                class="text-subtitle-2 mt-2 mb-0 font-weight-medium"
+                :key="`${index}-1`"
+              >
+                {{ exp.titulo }}
+              </p>
+              <p class="text-body-2 mt-2" :key="`${index}-2`">
+                {{ exp.descricao }}
+              </p>
             </template>
           </v-container>
           <v-container>
@@ -118,14 +130,14 @@
             <p class="text-body-2 mt-2">{{ carreira.projetos.descricao }}</p>
             <ul>
               <li>
-                <p class="text-body-2 mt-2" @click="proMental()">
-                  <a>
+                <a href="https://pensu-promental.web.app/#/" target="_blank">
+                  <p class="text-body-2 mt-2">
                     ProMental
                     <span class="orange--text text--lighten-2 text-caption">
                       (em desenvolvimento)
                     </span>
-                  </a>
-                </p>
+                  </p>
+                </a>
               </li>
             </ul>
           </v-container>
@@ -164,11 +176,25 @@
 <script>
 export default {
   data: () => ({
-    socialMedia: {
+    contatos: {
       titulo: "CONTATO",
-      descricao: ["igorbm@id.uff.br", "+55 021 97685-4058", "ibarretom"],
-      icone: ["mdi-email", "mdi-phone", "fab fa-github"],
-      links: ["", "", "https://github.com/ibarretom"],
+      formas: [
+        {
+          descricao: "igorbm@id.uff.br",
+          icone: "mdi-email",
+          links: "",
+        },
+        {
+          descricao: "+55 021 97685-4058",
+          icone: "mdi-phone",
+          links: "",
+        },
+        {
+          descricao: "ibarretom",
+          icone: "fab fa-github",
+          links: "https://github.com/ibarretom",
+        },
+      ],
     },
 
     idiomas: {
@@ -223,12 +249,14 @@ export default {
           },
         ],
       },
+
       projetos: {
         icone: "mdi-account",
         titulo: "Projetos",
         descricao:
           "Alguns dos projetos em que tive a oportunidade de trabalhar.",
       },
+
       skils: {
         icone: "mdi-account",
         titulo: "Habilidades",
@@ -265,30 +293,12 @@ export default {
         ],
       },
     },
+
     infoPerfil: {
       nome: "Igor Meirelles",
       profissao: "Desenvolvedor de Software",
     },
   }),
-  methods: {
-    proMental() {
-      window.open("https://pensu-promental.web.app/#/");
-    },
-  },
-  mounted() {
-    document.querySelectorAll("li[contato]").forEach((li) => {
-      const arrayDeIcones = this.socialMedia.icone;
-      const links = this.socialMedia.links;
-      li.onclick = (e) => {
-        e.preventDefault();
-        let atributo = li.getAttribute("contato");
-        let indiceDoIcone = arrayDeIcones.indexOf(atributo);
-        if (indiceDoIcone === 2) {
-          window.open(links[indiceDoIcone]);
-        }
-      };
-    });
-  },
 };
 </script>
 <style scoped>
@@ -335,6 +345,9 @@ a {
 .topic-column {
   padding-left: 16px;
   text-align: left;
+  color: white;
+}
+a.link_profile {
   color: white;
 }
 </style>
