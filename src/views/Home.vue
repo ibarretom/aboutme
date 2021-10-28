@@ -221,8 +221,9 @@ export default {
       sobre: {
         icone: "mdi-account",
         titulo: "Sobre",
-        descricao: `Como pessoa, custumo ser bem curioso e passo horas pesquisando sobre os assuntos de interesse, buscando conhecer e aprender o máximo que posso.
-            Como profissional, gosto de cumprir com seriedade as tarefas que me são confiadas e estou sempre buscando o melhor para a empresa em que trabalho.`,
+        descricao: `Cristão, Software Developer, aprendiz. Gosto de mercado financeiro, também de tocar violão de 
+        vez em quando. Tenho 22 anos e estou em busca de melhorar minhas habilidades como programador. Seja bem ao 
+        meu currículo, aqui vc pode encontrar minhas experiencias e alguns projeto que pude trabalhar.`,
       },
       exp: {
         icone: "mdi-account",
