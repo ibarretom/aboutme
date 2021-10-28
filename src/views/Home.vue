@@ -221,8 +221,7 @@ export default {
       sobre: {
         icone: "mdi-account",
         titulo: "Sobre",
-        descricao: `Com 22 anos, sou um Desenvolvedor Web, no qual se diverte ao ver suas aplicações tomando vida. 
-            Como pessoa, custumo ser bem curioso e passo horas pesquisando sobre os assuntos de interesse, buscando conhecer e aprender o máximo que posso.
+        descricao: `Como pessoa, custumo ser bem curioso e passo horas pesquisando sobre os assuntos de interesse, buscando conhecer e aprender o máximo que posso.
             Como profissional, gosto de cumprir com seriedade as tarefas que me são confiadas e estou sempre buscando o melhor para a empresa em que trabalho.`,
       },
       exp: {
@@ -233,19 +232,23 @@ export default {
             titulo: "Pensu - Projeto de Ensino e Saúde na Universidade",
             tipo: "Desenvolvimento Mobile",
             descricao:
-              "Atualmente faço parte de um projeto de Iniciação Científica, o qual possui o propósito de criar aplicações voltadas a área da saúde. Nesse projeto, trabalho com Html, CSS, Javascript e VueJS.",
+              "Projeto de Iniciação Científica, o qual possui o propósito de criar aplicações voltadas a área da saúde. Nesse projeto, trabalho com Html, CSS, Javascript e VueJS.",
           },
           {
             titulo: "Eletrofrigor",
             tipo: "Suporte de TI",
             descricao:
-              "Durante 3 meses atuei como estagiário em suporte de TI, realizando: abertura de chamado e correções de bugs no ERP Millennium, gerenciamênto de rede e usuários e manutenção de computadores.",
+              `Durante 3 meses atuei como estagiário em suporte de TI, realizando: abertura de chamado e 
+              correções de bugs no ERP Millennium,
+               gerenciamênto, de rede e usuários, e realizando manutenção de computadores.`,
           },
           {
             titulo: "Rede Globo de Televisão - Noesis",
             tipo: "Desenvolvimento Front-end",
             descricao:
-              "Durante 4 meses trabalhei como Analista de desenvolvimento Jr. Durante este período atuei na criação e manutenção e de portais administrativos. Tive experiência com as linguagens HTML, CSS3 e Javascript além do framework Vuejs e o plugin Vuetify.",
+              `Durante 4 meses trabalhei como Analista de desenvolvimento Jr. Durante este período atuei na criação
+               e manutenção de portais administrativos. Tive experiência com as linguagens HTML, CSS3 e Javascript 
+               além do framework Vuejs e o plugin Vuetify.`,
           },
         ],
       },
