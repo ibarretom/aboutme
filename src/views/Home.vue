@@ -222,8 +222,8 @@ export default {
         icone: "mdi-account",
         titulo: "Sobre",
         descricao: `Cristão, Software Developer, aprendiz. Gosto de mercado financeiro, também de tocar violão de 
-        vez em quando. Tenho 22 anos e estou em busca de melhorar minhas habilidades como programador. Seja bem ao 
-        meu currículo, aqui vc pode encontrar minhas experiencias e alguns projeto que pude trabalhar.`,
+        vez em quando. Tenho 23 anos e estou em busca de melhorar minhas habilidades como programador. Seja bem-vindo ao 
+        meu currículo, aqui vc pode encontrar minhas experiências e alguns projetos em que pude trabalhar.`,
       },
       exp: {
         icone: "mdi-account",
@@ -241,7 +241,7 @@ export default {
             descricao:
               `Durante 3 meses atuei como estagiário em suporte de TI, realizando: abertura de chamado e 
               correções de bugs no ERP Millennium,
-               gerenciamênto, de rede e usuários, e realizando manutenção de computadores.`,
+               gerenciamento, de rede e usuários, e realizando manutenção de computadores.`,
           },
           {
             titulo: "Rede Globo de Televisão - Noesis",
